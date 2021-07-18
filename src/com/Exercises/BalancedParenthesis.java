@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.Exercises;
 
 import com.Exceptions.StackOverFlowException;
