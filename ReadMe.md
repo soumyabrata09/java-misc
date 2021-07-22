@@ -11,5 +11,10 @@ mvn clean install
 ````
 _TODO_
  - [x] Basic Code Examples added already
- - [ ] Create a Generic SLF4J logger which can be inject to gereric bean generator and can be used across the project
- - [ ] Include spring container and provide a reusable bean generator 
+ - [x] Create a Generic SLF4J logger which can be inject to gereric bean generator and can be used across the project
+ - [x] Include spring container and provide a reusable bean generator 
+ - [x] Base64 Encryption-decryption Implemented
+ 
+````
+TestCryptograpgy.java is reference class to check the cryptography functionality
+````
