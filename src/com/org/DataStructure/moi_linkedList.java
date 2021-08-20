@@ -5,7 +5,8 @@ package com.org.DataStructure;
  * @version 1.0
  *
  */
-public class moi_linkedList {
+public class
+moi_linkedList {
    
 	public node Head; // to keep a track of the head of the linked list 
 	//inner class named as node

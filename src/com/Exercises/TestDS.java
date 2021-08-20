@@ -1,5 +1,8 @@
 package com.Exercises;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.misc.Utility;
@@ -28,7 +31,8 @@ public class TestDS {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		
+		List ll = new LinkedList();
+		ll.add("Seasons");
 		moi_linkedList list = new moi_linkedList();
 		list.Head = new node("2"); // data inserted on the head of the list 
 		node node2 = new node("3");
