@@ -1,3 +1,4 @@
+/*
 package com.sam09.Exercises.immutability;
 
 import org.junit.Before;
@@ -16,9 +17,11 @@ import static org.junit.Assert.*;
 public class CustomImmutabilityTest {
 
     private static final Logger log = LoggerFactory.getLogger(CustomImmutabilityTest.class);
-    /*private HashMap<String,String> hashMap;*/
+    */
+/*private HashMap<String,String> hashMap;*//*
+
     private String name = "Sam09";
-    private int id = 001;
+    private int id = 101;
     CustomImmutability immutableInstance;
 
     @Before
@@ -31,7 +34,9 @@ public class CustomImmutabilityTest {
         hashMap.put("Microsoft", "Satya Nadella");
         hashMap.put("Google", "Sundar Pichai");
         hashMap.put("Apple", "Tim Cook");
-        /*hashMap.put("IBM", "Arvind Krishna");*/
+        */
+/*hashMap.put("IBM", "Arvind Krishna");*//*
+
         return hashMap;
     }
 
@@ -48,10 +53,10 @@ public class CustomImmutabilityTest {
         tempMap.put("IBM", "Arvind Krishna");
 
         name = "Modified Value";
-        id = 002;
+        id = 102;
         log.info("After modification-> id: " + immutableInstance.getId() +  "\nname: " + immutableInstance.getName() + "\nHashMap: " + immutableInstance.getHashMap());
         log.info("HashMap Size after putting new value: " + tempMap.size());
         assertNotEquals(name, immutableInstance.getName());
         assertNotEquals(id, immutableInstance.getId());
     }
-}
+}*/

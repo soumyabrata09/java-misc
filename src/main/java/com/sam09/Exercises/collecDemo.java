@@ -16,8 +16,8 @@ public class collecDemo {
 	 */
 	public static void main(String[] args) {
 
-		ArrayList<Employee> list = new ArrayList<Employee>();
-		Set<Employee> set = new HashSet<Employee>();
+		ArrayList<Employee> list = new ArrayList<>();
+		Set<Employee> set = new HashSet<>();
 		
 		Employee e = new Employee(2);
 		list.add(e);
