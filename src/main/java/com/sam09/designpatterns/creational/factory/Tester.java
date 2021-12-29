@@ -5,10 +5,10 @@ public class Tester extends EmployeeDetails {
     private String type;
     private String experience;
 
-    public Tester(String name, String type, String experience) {
+    public Tester(String name, String type) {
         this.name = name;
         this.type = type;
-        this.experience = experience;
+        //this.experience = experience;
     }
     @Override
     public String getName() {
@@ -22,6 +22,6 @@ public class Tester extends EmployeeDetails {
 
     @Override
     public String getExperience() {
-        return this.experience;
+        return null;
     }
 }

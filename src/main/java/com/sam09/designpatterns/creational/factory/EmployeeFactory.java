@@ -11,7 +11,7 @@ public class EmployeeFactory {
                 emp = new Manager(name,type,experience);
                 break;
             case "Tester":
-                emp = new Tester(name,type,experience);
+                emp = new Tester(name,type);
                 break;
             default: throw new RuntimeException("Unknown Employee type");
         }
