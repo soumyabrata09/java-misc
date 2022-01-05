@@ -1,5 +1,8 @@
 package com.sam09.designpatterns.creational.factory;
 
+/**
+ * @author Soumyabrata09
+ */
 public abstract class EmployeeDetails {
     public abstract String getName();
     public abstract String getType();

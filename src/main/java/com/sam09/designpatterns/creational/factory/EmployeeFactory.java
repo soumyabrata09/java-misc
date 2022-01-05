@@ -1,6 +1,16 @@
 package com.sam09.designpatterns.creational.factory;
 
+/**
+ * @author Soumyabrata09
+ */
 public class EmployeeFactory {
+    /**
+     *
+     * @param name
+     * @param type
+     * @param experience
+     * @return an instance of the type of Object asked for
+     */
     public static EmployeeDetails createEmployee(String name, String type, String experience) {
         EmployeeDetails emp;
         switch (type) {

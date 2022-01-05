@@ -1,4 +1,7 @@
 package com.sam09.designpatterns.creational.builder;
+/**
+ * @author Soumyabrata09
+ */
 
 import java.util.Objects;
 
@@ -8,6 +11,13 @@ public final class Address implements Cloneable{
     private String pincode;
     private String landMark;
 
+    /**
+     *
+     * @param addressLine1
+     * @param addressLine2
+     * @param pincode
+     * @param landMark
+     */
     public Address(String addressLine1, String addressLine2, String pincode, String landMark) {
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
@@ -15,22 +25,43 @@ public final class Address implements Cloneable{
         this.landMark = landMark;
     }
 
+    /**
+     *
+     * @return addressLine1 parameter's value
+     */
     public String getAddressLine1() {
         return addressLine1;
     }
 
+    /**
+     *
+     * @return addressLine2 parameter's value
+     */
     public String getAddressLine2() {
         return addressLine2;
     }
 
+    /**
+     *
+     * @return pincode parameter's value
+     */
     public String getPincode() {
         return pincode;
     }
 
+    /**
+     *
+     * @return landmark parameter's value
+     */
     public String getLandMark() {
         return landMark;
     }
 
+    /**
+     *
+     * @return a clone of this Object
+     * @throws CloneNotSupportedException
+     */
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }

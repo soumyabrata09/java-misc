@@ -1,9 +1,16 @@
 package com.sam09.designpatterns.creational.abstractfactory;
+/**
+ * @author Soumyabrata09
+ */
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AbstractFactoryMainClazz {
+    /**
+     *
+     * @return slf4J logger for this class
+     */
     public static final Logger getLogger() {
         return LoggerFactory.getLogger(AbstractFactoryMainClazz.class);
     }

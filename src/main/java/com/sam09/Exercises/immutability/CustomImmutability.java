@@ -10,7 +10,7 @@ import java.util.Map;
 /**
 * @author soumyabrata09
  * Details about immutability in Java can be found here
- * <a href="#{@link}">{@link <a href="https://sam09.atlassian.net/wiki/spaces/SAM09HOWTO/pages/589828/Immutable+Class+in+Java">...</a>}</a>
+ * see also @see <a href="https://sam09.atlassian.net/wiki/spaces/SAM09HOWTO/pages/589828/Immutable+Class+in+Java">Immutable Class in Java</a>
 * */
 public final class CustomImmutability {
 
@@ -24,7 +24,7 @@ public final class CustomImmutability {
      * Constructor injection through Deep copy
      * @param name accepts a String value
      * @param id accepts a integer value
-     * @param hashMap takes an HashMap<String,String>  object
+     * @param hashMap takes an HashMap object
      * */
     public CustomImmutability(String name, int id, Map<String, String> hashMap) {
         log.info("Performing the Deep Copy of the Objects");

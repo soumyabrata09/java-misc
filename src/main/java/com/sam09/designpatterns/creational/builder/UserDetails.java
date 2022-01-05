@@ -6,6 +6,10 @@ public class UserDetails {
     private final int age; //Optional
     final Address address; //Optional
 
+    /**
+     *
+     * @param builder builder  creates an object of UserDetails set them through the private constructor of the class
+     */
     private UserDetails(UserDetailsBuilder builder) {
         this.fName = builder.fname;
         this.lName = builder.lname;
@@ -13,18 +17,35 @@ public class UserDetails {
         this.address = builder.address;
     }
 
+    /**
+     *
+     * @return fName field's value
+     */
     public String getfName() {
         return fName;
     }
 
+    /**
+     *
+     * @return lName field's value
+     */
     public String getlName() {
         return lName;
     }
 
+    /**
+     *
+     * @return age field's value
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     *
+     * @return a clone of Address Object
+     * @throws CloneNotSupportedException
+     */
     public Address getAddress() throws CloneNotSupportedException {
         return (Address) address.clone();
     }
@@ -45,19 +66,40 @@ public class UserDetails {
         private int age;
         Address address;
 
-
+        /**
+         *
+         * @param fname
+         * @param lname sets the required parameters only
+         */
         public UserDetailsBuilder(String fname, String lname) {
             this.fname = fname;
             this.lname = lname;
         }
+
+        /**
+         *
+         * @param age to set the optional age parameter
+         * @return
+         */
         public UserDetailsBuilder age(int age) {
             this.age = age;
             return this;
         }
+
+        /**
+         *
+         * @param address to set the optional address parameter
+         * @return
+         */
         public UserDetailsBuilder address(Address address) {
             this.address = address;
             return this;
         }
+
+        /**
+         *
+         * @return an UserDetails object upon calling the method
+         */
         public UserDetails build() {
             UserDetails user = new UserDetails(this);
             return user;

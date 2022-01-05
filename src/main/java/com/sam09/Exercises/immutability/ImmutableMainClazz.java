@@ -6,12 +6,17 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Soumyabrata09
+ */
 public class ImmutableMainClazz {
-
+    /**
+     *
+     * @return slf4j Logger for current class
+     */
     public static final Logger getLogger() {
         return LoggerFactory.getLogger(ImmutableMainClazz.class);
     }
-
     enum ORGANIZATION {
         APPL("Apple Inc.", "Tim Cook"),
         IBM("IBM Inc.", "Arvind Krishna"),
@@ -31,6 +36,10 @@ public class ImmutableMainClazz {
         }
     }
 
+    /**
+     *
+     * @return a HashMap Object
+     */
     private static Map<String,String> populateMap() {
         Map<String,String> map = new HashMap<>();
         map.put(ORGANIZATION.APPL.getOrgName(), ORGANIZATION.APPL.getCeo());
