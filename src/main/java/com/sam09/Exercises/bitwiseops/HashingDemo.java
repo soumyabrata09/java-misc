@@ -1,5 +1,9 @@
 package com.sam09.Exercises.bitwiseops;
 
+import com.sam09.Exercises.Hashing.Hash;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 /**
@@ -11,11 +15,15 @@ public class HashingDemo {
         return Integer.toBinaryString(hashCode);
     }
 
+    private static final Logger getLogger() {
+        return LoggerFactory.getLogger(HashingDemo.class);
+    }
+
     public static void main(String[] args) {
         System.out.println("Enter a data to calculate the hash: ");
         Scanner scanner = new Scanner(System.in);
         String value = scanner.nextLine();
-        int hashCode = value.hashCode();
+        /*int hashCode = value.hashCode();
         System.out.println("Hashcode generated for " + value +": " + hashCode);
         System.out.println("Binary representation of Hashcode generated for " + value +": " + getBinary(hashCode));
         int unsignedRightShiftVal = hashCode >>> 16;
@@ -25,6 +33,9 @@ public class HashingDemo {
         System.out.println("Binary representation of Hash Value: " + hash + ": " + getBinary(hash));
         int bucket = (16-1) & hash;
         System.out.println("Bucket acquired: " + bucket);
-        System.out.println("Binary Rep. of Bucket acquired: " + getBinary(bucket));
+        System.out.println("Binary Rep. of Bucket acquired: " + getBinary(bucket));*/
+        int bucketSize = 20;
+        Hash hash = new Hash(value,bucketSize);
+        getLogger().info("Bucket acquired " + hash.getBucket() + " out of total " + bucketSize);
     }
 }
