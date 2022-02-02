@@ -166,5 +166,33 @@ public class ArithmeticOperationOnStream {
         System.out.print("Total number of distinct array Element: " + ArithmeticOperationOnStream.getDistinctElement(sampleArray));
         lineSeparator();
         ArithmeticOperationOnStream.printOccurrenceOfArrayItems(sampleArray);
+        lineSeparator();
+        int minimum = Arrays.stream(sampleArray).min().getAsInt();
+        int maximum = Arrays.stream(sampleArray).max().getAsInt();
+        System.out.println("Maximum: " + maximum);
+        System.out.println("Minimum: " + minimum);
+        System.out.println("Difference (max,min): " + Math.subtractExact(maximum,minimum));
+
+        List<Integer> intList = Arrays.asList(2, 4, 5, 1, 3, 9, 2, 5, 1, 4, 1, 9, 12, 2, 3, 2);
+        intList.stream()
+                .sorted(Comparator.reverseOrder())
+                .forEach(item -> System.out.print(item + "\t"));
+        lineSeparator();
+
+        //remove duplicate values from the sample arrayList
+        intList.stream()
+                .collect(Collectors.toCollection(LinkedHashSet::new))
+                .forEach(item -> System.out.print(item + "\t"));
+        lineSeparator();
+        //remove duplicate values from the sample arrayList and sort it
+        intList.stream()
+                .collect(Collectors.toCollection(TreeSet::new))
+                .forEach(item -> System.out.print(item + "\t"));
+        lineSeparator();
+        //remove duplicate values from the sample arrayList and sort it in descending order
+        intList.stream()
+                .collect(Collectors.toCollection(TreeSet::new))
+                .descendingSet()
+                .forEach(item -> System.out.print(item + "\t"));
     }
 }
