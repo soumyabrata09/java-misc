@@ -23,6 +23,7 @@ public class TestAnagram {
 		System.out.println("Enter second string = ");
 		str2 = scanner.nextLine();
 		obj.isAnagram(str1,str2);
+
 		scanner.close();
 	}
 
