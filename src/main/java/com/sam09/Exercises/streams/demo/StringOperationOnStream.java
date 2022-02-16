@@ -95,6 +95,12 @@ public class StringOperationOnStream {
             System.out.print(entry.getKey() + " appeared: " + entry.getValue() + " times\n");
         });
 
+        /*You have a list of Maps in the format map: [{"ID":"value"},{"name":"value"},{"Salary":"value"}];
+        you need to print the following
+            1. Print the map values where salary > 50K
+            2. Print the map in a natural sorting where salary > 50K
+            3. Print the map in descending order where salary > 50K
+        */
         List<Map<String, String>> listOfMap = new ArrayList<>();
         List<Map<String,String>> resultantList = new ArrayList<>();
 
@@ -133,12 +139,14 @@ public class StringOperationOnStream {
             System.out.println(mapObj);
         }
 
-        List<String> dummyList = new ArrayList<>();
+        /*List<String> dummyList = new ArrayList<>();
         dummyList.add("Sam");
         dummyList.add("Dam");
         dummyList.add("Pam");
-        dummyList.add("Bam");
+        dummyList.add("Bam");*/
 
+        System.out.println("====Traditional Java 7 way");
+        System.out.println("Following are the list of map values where salary is more than 5K");
         for (Map<String,String> mapObj : listOfMap) {
             System.out.println(mapObj);
             if (Integer.parseInt(mapObj.get("Salary")) >= 50000) {
@@ -147,8 +155,8 @@ public class StringOperationOnStream {
         }
         System.out.println(resultantList);
 
-        System.out.println("Using the Stream()");
-
+        System.out.println("====Java 8 way using the Stream()");
+        System.out.println("Following are the list of map values where salary is more than 5K");
         listOfMap.stream()
                 .filter(item -> Integer.parseInt(item.get("Salary")) >= 50000)
                 .collect(Collectors.toList())
@@ -168,6 +176,37 @@ public class StringOperationOnStream {
 
         System.out.println("Total number of Employees earning more than or equal to 50K: " + Math.toIntExact(counter));
 
+        System.out.println("Following are the list of map values where salary is more than 5K in ascending order by name");
+
+        listOfMap.stream()
+                .filter( item -> Integer.parseInt(item.get("Salary")) >= 50000 )
+                .sorted( (mapObject1, mapObject2) -> mapObject1.get("Name").compareToIgnoreCase(mapObject2.get("Name")) )
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+        System.out.println("===With another approach( listing down same data as above");
+
+        listOfMap.stream()
+                .filter( item -> Integer.parseInt(item.get("Salary")) >= 50000 )
+                .sorted(Comparator.comparing( mapElement -> mapElement.get("Name")) )
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+
+        System.out.println("Following are the list of map values where salary is more than 5K in descending order by name");
+
+        listOfMap.stream()
+                .filter( item -> Integer.parseInt(item.get("Salary")) >= 50000 )
+                .sorted( (mapObject1, mapObject2) -> mapObject2.get("Name").compareToIgnoreCase(mapObject1.get("Name")) )
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+        System.out.println("===With another approach( listing down same data as above )");
+        listOfMap.stream()
+                .filter( item -> Integer.parseInt(item.get("Salary")) >= 50000 )
+                .sorted(Collections.reverseOrder(
+                        Comparator.comparing( mapElement -> mapElement.get("Name"))
+                ))
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+        System.out.println();
         Map<String,Integer> phonePriceMap = new HashMap<>();
         phonePriceMap.put("Iphone", 100000);
         phonePriceMap.put("Samsung", 120000);
@@ -187,13 +226,13 @@ public class StringOperationOnStream {
                 .stream()
                 .sorted( (k1, k2) -> k2.getKey().compareToIgnoreCase(k1.getKey()))
                 .forEach( writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
-
+        System.out.println("======Ascending with anther approach");
         /*Another approach*/
         phonePriceMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())
                 .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
-        System.out.println("=========Descending");
+        System.out.println("=========Descending with another approach");
 
         phonePriceMap.entrySet()
                 .stream()
