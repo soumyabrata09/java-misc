@@ -168,5 +168,67 @@ public class StringOperationOnStream {
 
         System.out.println("Total number of Employees earning more than or equal to 50K: " + Math.toIntExact(counter));
 
+        Map<String,Integer> phonePriceMap = new HashMap<>();
+        phonePriceMap.put("Iphone", 100000);
+        phonePriceMap.put("Samsung", 120000);
+        phonePriceMap.put("Oppo", 45000);
+        phonePriceMap.put("Oneplus", 55000);
+        phonePriceMap.put("Vivo", 35000);
+        phonePriceMap.put("Poco", 25000);
+
+        /*Sort the phonePriceMap according to their keyValue*/
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted((k1,k2) -> k1.getKey().compareToIgnoreCase(k2.getKey()))
+                .forEach( writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+        System.out.println("=========Descending");
+
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted( (k1, k2) -> k2.getKey().compareToIgnoreCase(k1.getKey()))
+                .forEach( writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+
+        /*Another approach*/
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+        System.out.println("=========Descending");
+
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
+                .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+
+        System.out.println("=========Using Comparator.comparing (keySelector,Comparator) variant");
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted(Comparator.comparing(
+                        Map.Entry::getKey,
+                        (k1, k2) -> k1.compareToIgnoreCase(k2)
+                ))
+                .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+        System.out.println("=========Descending");
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted(Comparator.comparing(
+                        Map.Entry::getKey,
+                        (k1, k2) -> k2.compareToIgnoreCase(k1)
+                ))
+                .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+
+        System.out.println("=========Using Comparator.comparing (keySelector) variant");
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted(Comparator.comparing(Map.Entry::getKey))
+                .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+        System.out.println("=========Descending");
+
+        phonePriceMap.entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(
+                        Comparator.comparing(Map.Entry::getKey)
+                ))
+                .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
     }
 }

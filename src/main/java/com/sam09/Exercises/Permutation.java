@@ -32,7 +32,7 @@ public class Permutation {
 	public static void Permute(String str , int startIndex , int lastIndex) {
 		
 		if(startIndex == lastIndex ) {
-			System.out.println(str);
+			System.out.print(str);
 		}
 		else {
 			for(int i = startIndex ; i <= lastIndex ; i++) {
@@ -41,6 +41,7 @@ public class Permutation {
 				str =swap(str , startIndex , i);
 			}
 		}
+		System.out.print("\t");
 	} 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
