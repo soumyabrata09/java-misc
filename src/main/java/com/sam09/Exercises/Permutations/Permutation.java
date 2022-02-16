@@ -1,4 +1,4 @@
-package com.sam09.Exercises;
+package com.sam09.Exercises.Permutations;
 import java.util.Scanner;
 /**
  * @author Sam
