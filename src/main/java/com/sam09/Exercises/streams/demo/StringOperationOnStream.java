@@ -269,5 +269,8 @@ public class StringOperationOnStream {
                         Comparator.comparing(Map.Entry::getKey)
                 ))
                 .forEach(writer -> System.out.println("[" + writer.getKey() + ":" + writer.getValue() + "]"));
+
+        phonePriceMap.entrySet().stream().filter( item -> item.getValue() >= 50000)
+                .forEach(out -> System.out.println("Phone: " + out.getKey() + " price: " + out.getValue()));
     }
 }
