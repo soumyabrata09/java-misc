@@ -1,10 +1,8 @@
 package com.sam09.Exercises;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Optional;
+import com.sam09.misc.utils.ArrayUtility;
+
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 /**
  * @author Soumyabrata09
@@ -20,15 +18,6 @@ import java.util.stream.IntStream;
  * {1, 4, -2, 5, -5, 3 , -1} output: -5
  */
 public class FarthestNumberFromZero {
-
-    public static int[] getIntArray(Scanner scanner, int range){
-        return Optional.ofNullable(
-                IntStream.range(0, range)
-                        .boxed()
-                        .mapToInt( item -> scanner.nextInt())
-                        .toArray())
-                .orElseGet(() -> new int[range]);
-    }
 
     public static int getFarthestNumber(int[] array) {
         int distance = 0;
@@ -56,10 +45,10 @@ public class FarthestNumberFromZero {
         int range = scanner.nextInt();
         System.out.println("Enter random (int) values[combination of -ve && +ve]: ");
 
-        int[] generatedArray = FarthestNumberFromZero.getIntArray(scanner, range);
+        int[] generatedArray = ArrayUtility.createArray(scanner, range);
         int farthestElement =0;
 
-        boolean notNull = Arrays.stream(generatedArray).allMatch(Objects::nonNull); // checking whether the generatedArray is initialized
+        boolean notNull = ArrayUtility.hasArrayInitialized(generatedArray); // checking whether the generatedArray is initialized
         if (notNull) {
             farthestElement = FarthestNumberFromZero.getFarthestNumber(generatedArray);
             System.out.println("Farthest Element from Zero: " + farthestElement);

@@ -1,12 +1,12 @@
 package com.sam09.Exercises;
 
+import com.sam09.misc.utils.ArrayUtility;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.Scanner;
 
 /**
  * @author Soumyabrata09
@@ -35,15 +35,6 @@ import java.util.Scanner;
  *
  */
 public class FindMedianValue {
-
-    public static int[] getIntArray(Scanner scanner, int range) {
-        return Optional.ofNullable(
-                IntStream.range(0, range)
-                        .boxed()
-                        .mapToInt( item -> scanner.nextInt())
-                        .toArray()
-        ).orElseGet(() -> new int[range]);
-    }
 
     private static void printMedians(int[] generatedArray, int startIndex, int endIndex) {
         if (startIndex >= 1 && startIndex <= endIndex && endIndex <= (generatedArray.length +1) ) {
@@ -78,8 +69,8 @@ public class FindMedianValue {
         int iteration = scanner.nextInt();
 
         System.out.println("Enter array values(space-separated): ");
-        int[] generatedArray = FindMedianValue.getIntArray(scanner, range);
-        boolean notNull = Arrays.stream(generatedArray).allMatch(Objects::nonNull);
+        int[] generatedArray = ArrayUtility.createArray(scanner, range);
+        boolean notNull = ArrayUtility.hasArrayInitialized(generatedArray);
         if (notNull) {
             while (iteration > 0) {
                 System.out.println("Provide Start and End Index: ");
