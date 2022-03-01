@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author Soumyabrata09
@@ -44,7 +45,6 @@ public class ArithmeticOperationOnStream {
                             int positiveRandomValue = Math.abs(random.nextInt(bound));
                             sampleArray[value] = positiveRandomValue;
                         });
-        log.info("Array Generated: " + sampleArray + "\n");
         return sampleArray;
     }
 
@@ -194,5 +194,29 @@ public class ArithmeticOperationOnStream {
                 .collect(Collectors.toCollection(TreeSet::new))
                 .descendingSet()
                 .forEach(item -> System.out.print(item + "\t"));
+
+        /*
+        * For a given List of Integers, find the summation of squared odd values from the list
+        * */
+
+        int sumOfSquareOnFilteredData = intList.stream()
+                .filter(item -> item % 2 == 1)
+                .map(filteredItem -> Math.pow(filteredItem, 2))
+                .reduce(0.0, (itm1, itm2) -> itm1 + itm2)
+                .intValue();
+
+        Stream<Integer> filteredOddData = intList.stream().filter(item -> item % 2 == 1);
+
+        Stream<Double> oddNumberSquareStream = intList.stream()
+                .filter(item -> item % 2 == 1)
+                .map(element -> Math.pow(element, 2));
+        System.out.print("List of odd values: : ");
+        filteredOddData
+                .forEach( out -> System.out.print(out + "\t") );
+        System.out.print("\nList of squared odd values: ");
+        oddNumberSquareStream
+                .forEach(out -> System.out.print("\t" + out + "\t") );
+
+        System.out.println("\nSum data of Squared odd data: " + sumOfSquareOnFilteredData);
     }
 }

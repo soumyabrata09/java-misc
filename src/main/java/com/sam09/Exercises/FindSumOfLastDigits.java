@@ -9,11 +9,11 @@ import java.util.Scanner;
  */
 public class FindSumOfLastDigits {
 
-    private static int getSumOfLastDigits(int range, int[] generatedArray) {
+    private static int getSumOfLastDigits(int range, int[] array) {
         int result = -404;
         int sum = 0;
         for (int index =0; index< range; index++) {
-            int[] arrayElement = Integer.toString(generatedArray[index])
+            int[] arrayElement = Integer.toString(array[index])
                     .chars()
                     .map( element -> element - '0')
                     .toArray();
