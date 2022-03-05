@@ -42,7 +42,6 @@ class Anagram{
 			synchronized(Anagram.class) {
 				if(instance == null) {
 					instance = new Anagram();
-					
 				}
 			}
 		}

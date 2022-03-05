@@ -272,5 +272,34 @@ public class StringOperationOnStream {
 
         phonePriceMap.entrySet().stream().filter( item -> item.getValue() >= 50000)
                 .forEach(out -> System.out.println("Phone: " + out.getKey() + " price: " + out.getValue()));
+
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee(001, "Soumyabrata", 20_00_000));
+        employeeList.add(new Employee(001, "Sourav", 11_00_000));
+        employeeList.add(new Employee(001, "Shubhajit", 9_00_000));
+        employeeList.add(new Employee(001, "Benzima", 27_00_000));
+        employeeList.add(new Employee(001, "Soumya", 10_50_000));
+        employeeList.add(new Employee(001, "Praneet", 17_00_000));
+        employeeList.add(new Employee(001, "Manosij", 16_50_000));
+        employeeList.add(new Employee(001, "Ghosal", 27_00_000));
+
+        double maximumSalary = employeeList.stream()
+                .mapToDouble(Employee::getSalary)
+                .max()
+                .getAsDouble();
+        System.out.println("Highest Salary from the list of Employees " + maximumSalary);
+        Set<Map.Entry<String, Employee>> maxSalarySet = employeeList.stream()
+                .filter(salary -> maximumSalary == salary.getSalary())
+                .collect(Collectors.toMap(
+                        keyMapper -> keyMapper.toString(),
+                        valueMapper -> valueMapper
+                )).entrySet();
+
+        Iterator<Map.Entry<String, Employee>> salaryIterator = maxSalarySet.stream().iterator();
+        while (salaryIterator.hasNext()) {
+            Map.Entry<String, Employee> salaryMap = salaryIterator.next();
+            System.out.println("[" + salaryMap.getKey() + "]");
+        }
+
     }
 }
