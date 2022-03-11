@@ -30,7 +30,7 @@ class child extends parent {
         super();
     }
 
-    public void show() {
+    public void show() throws ArithmeticException {
         /*super.show();*/
         System.out.println("From Child");
     }

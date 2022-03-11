@@ -53,8 +53,8 @@ public class BalancedParenthesis {
 					return false;
 				else if( !isMatched(stack.pop(),exp[i]))
 					return false;
-//				else
-//					return true;
+			/*	else
+					return true;*/
 			}
 		}
 		if(stack.isEmpty())
