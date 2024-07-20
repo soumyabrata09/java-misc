@@ -89,7 +89,6 @@ public final class CustomImmutability {
 
     @Override
     public String toString() {
-        /*return super.toString();*/
         return "[ " + id + ", " + name + " ]";
     }
 }
