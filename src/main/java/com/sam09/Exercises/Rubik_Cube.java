@@ -13,11 +13,6 @@ import java.net.URL;
 import java.net.MalformedURLException;
 import java.io.*;
 
-/**
- * @author Josef Jelinek
- * @version 3.5b
- */
-
 public final class Rubik_Cube extends Applet implements Runnable, MouseListener, MouseMotionListener {
   // external configuration
   private final Hashtable<String, String> config = new Hashtable<String, String>();

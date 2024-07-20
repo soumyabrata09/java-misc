@@ -10,7 +10,7 @@ import java.util.Set;
  * @author Sam
  *
  */
-public class checkEvenStrings {
+public class CheckEvenStrings {
 	
 	static String getEvenStr(String str) {
 		Map<Character, Integer> hm = new HashMap<Character,Integer>();
@@ -34,6 +34,6 @@ public class checkEvenStrings {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a choice of your string = ");
 		String str = scanner.nextLine();
-		System.out.println(checkEvenStrings.getEvenStr(str));
+		System.out.println(CheckEvenStrings.getEvenStr(str));
 	} 
 }

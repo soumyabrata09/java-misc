@@ -41,7 +41,7 @@ import java.util.Scanner;
  * @author soumyabrata
  *
  */
-public class completePascalTriangle {
+public class CompletePascalTriangle {
 
 	/**
 	 * @param args for command line argument

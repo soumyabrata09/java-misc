@@ -10,7 +10,8 @@ import java.util.stream.IntStream;
 
 /**
  * @author Soumyabrata09
- *
+ *<div>
+ *     <p>
  * Find the median of a given array of integers( staring point: array-index =1 ) where staring and ending index would be given and based on them
  * need to find the median of the sorted sub-array.
  * Median: ceiling( length_of_array / 2)
@@ -32,7 +33,8 @@ import java.util.stream.IntStream;
  *  Start and End Index( Start, End): 1 6  |  Median value of sub-array: [2, 3, 5, 6, 8, 11] is: 6
  *  Start and End Index( Start, End): 2 4  |  Median value of sub-array: [2, 8, 11] is: 8
  *  Start and End Index( Start, End): 3 3  |  Median value is: 2
- *
+ * </p>
+ * </div>
  */
 public class FindMedianValue {
 

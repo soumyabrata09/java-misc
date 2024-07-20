@@ -53,7 +53,7 @@ public class SumOfSeries {
 		
 		if(value >0 && value <10) {
 			for(int i =1; i<=value; i++) {
-				interimSeries = interimSeries + String.valueOf(value); // converting int > String
+				interimSeries = interimSeries + value; // converting int > String
 				summation = summation + Integer.parseInt(interimSeries); //add it back converting String > int again
 			}
 			System.out.println("Output : " + summation);

@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 /**
  * @author Soumyabrata09
+ * <div>
+ *     <p>
  * Given an unsorted array and a number n, find if there exists a pair of elements in the array whose difference is n.
  * Examples:
  *
@@ -20,6 +22,8 @@ import java.util.Scanner;
  * Pairs : 1 & 4 having diff 3
  * Pairs : 3 & 6 having diff 3
  * Pairs : 4 & 7 having diff 3
+ * </p>
+ * </div>
  */
 public class EvenPairsData {
 

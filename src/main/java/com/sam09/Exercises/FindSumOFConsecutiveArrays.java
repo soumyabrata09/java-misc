@@ -25,7 +25,7 @@ public class FindSumOFConsecutiveArrays {
     public static void printArray(int[] array, int i, int j) {
         List<Integer> resultantArrayList = IntStream.range(i, j+1)
                 .mapToObj( arrayIndex -> array[arrayIndex])
-                .collect(Collectors.toList());
+                .toList();
         System.out.println(resultantArrayList);
     }
 }
