@@ -3,8 +3,20 @@
   <groupId>com.sam09.misc</groupId>
   <artifactId>JavaMisc</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>Java-Misc</name>
+  <description>Miscellaneous java programs</description>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+    <lombok.version>1.18.32</lombok.version>
+    <junit.jupiter.version>5.9.0</junit.jupiter.version>
+    <slf4j.version>2.0.13</slf4j.version>
+    <javax.version>7.0</javax.version>
+    <spring.version>5.3.1</spring.version>
+    <jersey.version>3.0.2</jersey.version>
   </properties>
 
   <!--Jfrog artifactory integration-->
@@ -26,13 +38,15 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.31</version>
+      <version>${slf4j.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-jdk14</artifactId>
-      <version>1.7.31</version>
+      <version>${slf4j.version}</version>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
       <groupId>junit</groupId>
@@ -44,26 +58,86 @@
     <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-beans</artifactId>
-          <version>5.3.1</version>
+          <version>${spring.version}</version>
       </dependency>
+
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context</artifactId>
-          <version>5.3.1</version>
+          <version>${spring.version}</version>
       </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-autoconfigure</artifactId>
       <version>2.5.3</version>
     </dependency>
+
     <!-- <dependency>
        <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-simple</artifactId>
+       <artifactId>slf4j-simple</artifactId>O
        <version>RELEASE</version>
      </dependency>-->
+
+    <!--Lombok Plugin-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!--Jax-RS dependency-->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${javax.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--MapStruct Dependency-->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${org.mapstruct.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.7.0</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- Jersey Dependencies -->
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-server</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
+
   </dependencies>
-  <name>Java-Misc</name>
-  <description>Miscellaneous java programs</description>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -77,11 +151,34 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>3.11.0</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>21</source>
+          <target>21</target>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${org.mapstruct.version}</version>
+            </path>
+            <!-- other annotation processors -->
+          </annotationProcessorPaths>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
       </plugin>
     </plugins>
   </build>
