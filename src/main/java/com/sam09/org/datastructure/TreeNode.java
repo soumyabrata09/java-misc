@@ -1,8 +1,9 @@
-package com.sam09.org.DataStructure;
+package com.sam09.org.datastructure;
 
 import java.util.Objects;
 
 public class TreeNode {
+
     private Object key;
     TreeNode left;
     TreeNode right;

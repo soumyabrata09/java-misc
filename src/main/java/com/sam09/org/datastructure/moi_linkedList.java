@@ -1,4 +1,4 @@
-package com.sam09.org.DataStructure;
+package com.sam09.org.datastructure;
 
 /**
  * @author Sam

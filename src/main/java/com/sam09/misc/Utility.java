@@ -2,7 +2,7 @@ package com.sam09.misc;
 
 import com.sam09.Exceptions.StackOverFlowException;
 import com.sam09.Exceptions.StackUnderFlowException;
-import com.sam09.org.DataStructure.moi_Stack;
+import com.sam09.org.datastructure.moi_Stack;
 
 /**
  * @author Sam

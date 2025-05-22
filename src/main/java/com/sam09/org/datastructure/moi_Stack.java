@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.sam09.org.DataStructure;
+package com.sam09.org.datastructure;
 
 import com.sam09.Exceptions.StackOverFlowException;
 import com.sam09.Exceptions.StackUnderFlowException;

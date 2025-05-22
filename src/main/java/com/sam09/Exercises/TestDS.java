@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.sam09.misc.Utility;
-import com.sam09.org.DataStructure.moi_Stack;
-import com.sam09.org.DataStructure.moi_linkedList;
-import com.sam09.org.DataStructure.moi_linkedList.node;
+import com.sam09.org.datastructure.moi_Stack;
+import com.sam09.org.datastructure.moi_linkedList;
+import com.sam09.org.datastructure.moi_linkedList.node;
 
 /**
  * @author Sam

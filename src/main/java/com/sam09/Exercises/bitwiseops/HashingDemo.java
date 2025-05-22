@@ -11,6 +11,7 @@ import java.util.Scanner;
  * This fragemant of code demonstrate how java calculates hash for hash based collections such as HashTable,HashSet,HashMap etc.
  */
 public class HashingDemo {
+
     private static String getBinary(int hashCode) {
         return Integer.toBinaryString(hashCode);
     }

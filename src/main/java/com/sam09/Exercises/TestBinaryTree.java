@@ -1,7 +1,7 @@
 package com.sam09.Exercises;
 
-import com.sam09.org.DataStructure.BinaryTreeImpl;
-import com.sam09.org.DataStructure.TreeNode;
+import com.sam09.org.datastructure.BinaryTreeImpl;
+import com.sam09.org.datastructure.TreeNode;
 
 public class TestBinaryTree {
     public static void main(String args[]) {
