@@ -28,6 +28,11 @@ public class HeapSort implements BaseSorting {
         }
     }
 
+    @Override
+    public void sort(int[] arr, OrderBy orderBy) {
+        throw new UnsupportedOperationException();
+    }
+
     private void heapify(int[] arr, int length, int root) {
         var largest = root; //Initialize largest as the root
         var left = root * 2 + 1;

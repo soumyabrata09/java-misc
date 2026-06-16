@@ -9,3 +9,4 @@ public enum SortingStrategy {
     SELECTION,
     HEAP
 }
+

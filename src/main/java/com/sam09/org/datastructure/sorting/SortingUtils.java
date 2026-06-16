@@ -16,10 +16,11 @@ public class SortingUtils {
      * @param arr an integer array
      * @param sortingStrategy the strategy type, i.e MERGE/SELECTION/INSERTION/HEAP etc.
      */
-    public void sort(int[] arr, SortingStrategy sortingStrategy) {
+    public void sort(int[] arr, SortingStrategy sortingStrategy, OrderBy orderBy) {
         switch (sortingStrategy) {
             case HEAP -> new HeapSort().sort(arr);
-            case MERGE, SELECTION, INSERTION, QUICK, BUBBLE -> throw new UnsupportedOperationException(String.format("%s sorting has not been implemented", sortingStrategy.name()));
+            case SELECTION -> new SelectionSort().sort(arr, orderBy);
+            case MERGE, INSERTION, QUICK, BUBBLE -> throw new UnsupportedOperationException(String.format("%s sorting has not been implemented", sortingStrategy.name()));
             default -> throw new UnsupportedOperationException(String.format("%s is an unsupported sorting strategy", sortingStrategy.name()));
         }
     }
