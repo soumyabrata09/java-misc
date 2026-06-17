@@ -4,37 +4,49 @@ import com.sam09.org.datastructure.sorting.OrderBy;
 import com.sam09.org.datastructure.sorting.SortingStrategy;
 import com.sam09.org.datastructure.sorting.SortingUtils;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class TestSorting {
 
-    static int[] takeInput() {
-        var scanner = new Scanner(System.in);
+    public static final Scanner SCANNER = new Scanner(System.in);
+
+    static int[] processInput() {
         System.out.println("Enter the size of array: ");
-        var size = scanner.nextInt();
+        var size = SCANNER.nextInt();
         System.out.println("Enter array values:\t");
         var arr = new int[size];
-        IntStream.range(0, size)
-                .forEach(i -> arr[i] = scanner.nextInt());
+        IntStream.range(0, size).forEach(i -> arr[i] = SCANNER.nextInt());
 
-        scanner.close();
         return arr;
     }
 
+    static void sortByStrategy(SortingStrategy strategy) {
+        System.out.println("=====");
+        var arr = processInput();
+        var arrAsc = Arrays.copyOf(arr, arr.length);
+        var arrDesc = Arrays.copyOf(arr, arr.length);
+
+        System.out.printf("Sorted Array (Asc) - Strategy -> %s %n", strategy.name());
+        SortingUtils.sort(arrAsc, strategy, OrderBy.ASC);
+        SortingUtils.print(arrAsc);
+        System.out.println("\n=====");
+        System.out.printf("Sorted Array (Desc) - Strategy -> %s%n", strategy.name());
+        SortingUtils.sort(arrDesc, strategy, OrderBy.DESC);
+        SortingUtils.print(arrDesc);
+        System.out.println("\n=====");
+    }
+
+    // Sample Arrar: [ 18 6 51 39 4], n = 5
     public static void main(String args[]) {
-        /*var arr = takeInput();
+        /*var arr = processInput();
         System.out.print("Sorted Array:\n");
         SortingUtils.sort(arr, SortingStrategy.HEAP);
         SortingUtils.print(arr);*/
-        System.out.println("=====");
-        var arr = takeInput();
-        System.out.println("Sorted Array (Asc):");
-        SortingUtils.sort(arr, SortingStrategy.SELECTION, OrderBy.ASC);
-        SortingUtils.print(arr);
-        System.out.println("\n=====");
-        System.out.println("Sorted Array (Desc):");
-        SortingUtils.sort(arr, SortingStrategy.SELECTION, OrderBy.DESC);
-        SortingUtils.print(arr);
+        sortByStrategy(SortingStrategy.SELECTION);
+        sortByStrategy(SortingStrategy.INSERTION);
+
+        SCANNER.close();
     }
 }
