@@ -21,7 +21,8 @@ public class SortingUtils {
             case HEAP -> new HeapSort().sort(arr);
             case SELECTION -> new SelectionSort().sort(arr, orderBy);
             case INSERTION -> new InsertionSort().sort(arr, orderBy);
-            case MERGE, QUICK, BUBBLE -> throw new UnsupportedOperationException(String.format("%s sorting has not been implemented", sortingStrategy.name()));
+            case MERGE -> new MergeSort().sort(arr, orderBy);
+            case QUICK, BUBBLE -> throw new UnsupportedOperationException(String.format("%s sorting has not been implemented", sortingStrategy.name()));
             default -> throw new UnsupportedOperationException(String.format("%s is an unsupported sorting strategy", sortingStrategy.name()));
         }
     }

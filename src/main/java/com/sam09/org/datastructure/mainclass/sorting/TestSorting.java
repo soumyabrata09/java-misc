@@ -46,6 +46,7 @@ public class TestSorting {
         SortingUtils.print(arr);*/
         sortByStrategy(SortingStrategy.SELECTION);
         sortByStrategy(SortingStrategy.INSERTION);
+        sortByStrategy(SortingStrategy.MERGE);
 
         SCANNER.close();
     }
