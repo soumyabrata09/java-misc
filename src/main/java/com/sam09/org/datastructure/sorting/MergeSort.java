@@ -1,22 +1,18 @@
 package com.sam09.org.datastructure.sorting;
 
-public class MergeSort implements BaseSorting {
+import java.util.Arrays;
+
+public class MergeSort extends AbstractSorting {
 
     private record MergeContext(
             int[] originalArr,
             int[] leftSubArr,
             int[] rightSubArr,
-            int leftSubArrSize,
-            int rightSubArrSize,
             OrderBy orderBy) {}
 
     @Override
-    public void sort(int[] arr) {
-        throw new UnsupportedOperationException("Invalid operation");
-    }
-
-    @Override
     public void sort(int[] arr, OrderBy orderBy) {
+        validate(arr);
         switch (orderBy) {
             case ASC -> sortByAsc(arr, orderBy);
             case DESC -> sortByDesc(arr, orderBy);
@@ -30,24 +26,16 @@ public class MergeSort implements BaseSorting {
         }
 
         var mid = size / 2;
-        var leftSubArray = new int[mid];
-        var rightSubArray = new int[size - mid];
 
         //create left and right sub-array
-        for (var i = 0; i < mid; i++) {
-            leftSubArray[i] = arr[i];
-        }
-        for (var j = mid; j < size; j++) {
-            rightSubArray[j - mid] = arr[j];
-        }
+        var leftSubArray = Arrays.copyOfRange(arr, 0, mid);
+        var rightSubArray = Arrays.copyOfRange(arr, mid, arr.length);
         divideAndConquer(leftSubArray, mid, orderBy);
         divideAndConquer(rightSubArray, size - mid, orderBy);
         merge(new MergeContext(
                 arr,
                 leftSubArray,
                 rightSubArray,
-                mid,
-                (size - mid),
                 orderBy)
         );
     }
@@ -57,45 +45,26 @@ public class MergeSort implements BaseSorting {
         var rightIndex = 0;
         var arrIndex = 0;
 
-        while (leftIndex < context.leftSubArrSize() && rightIndex < context.rightSubArrSize()       ) {
-            /*if (leftSubArr[leftIndex] <= rightSubArr[rightIndex]) {
-                originalArr[arrIndex] = leftSubArr[leftIndex];
-                leftIndex++;
+        while (leftIndex < context.leftSubArr().length
+                && rightIndex < context.rightSubArr().length) {
+
+            var shouldTakeLeft = OrderBy.ASC.equals(context.orderBy())
+                    ? context.leftSubArr()[leftIndex] <= context.rightSubArr()[rightIndex]
+                    : context.leftSubArr()[leftIndex] >= context.rightSubArr()[rightIndex];
+            if (shouldTakeLeft) {
+                context.originalArr()[arrIndex++] = context.leftSubArr()[leftIndex++];
             } else {
-                originalArr[arrIndex] = rightSubArr[rightIndex];
-                rightIndex++;
-            }*/
-            if (OrderBy.ASC.equals(context.orderBy())) {
-                if(context.leftSubArr()[leftIndex] <= context.rightSubArr()[rightIndex]) {
-                    /**
-                     *  originalArr[arrIndex] = leftSubArr[leftIndex];
-                     *  leftIndex++;
-                     *
-                     *  outerlopp: arrIndex++;
-                     *
-                     *  short hand version: originalArr[arrIndex++] = rightSubArr[leftSubArray++]
-                     */
-                    context.originalArr()[arrIndex++] = context.leftSubArr()[leftIndex++];
-                } else {
-                    context.originalArr()[arrIndex++] = context.rightSubArr()[rightIndex++];
-                }
-            } else {
-                if (context.leftSubArr()[leftIndex] >= context.rightSubArr()[rightIndex]) {
-                    context.originalArr()[arrIndex++] = context.leftSubArr()[leftIndex++];
-                } else {
-                    context.originalArr()[arrIndex++] = context.rightSubArr()[rightIndex++];
-                }
+                context.originalArr()[arrIndex++] = context.rightSubArr()[rightIndex++];
             }
-//            arrIndex++;
         }
 
-        while (leftIndex < context.leftSubArrSize()) {
+        while (leftIndex < context.leftSubArr().length) {
             context.originalArr()[arrIndex] = context.leftSubArr()[leftIndex];
             leftIndex++;
             arrIndex++;
         }
 
-        while (rightIndex < context.rightSubArrSize()) {
+        while (rightIndex < context.rightSubArr().length) {
             context.originalArr()[arrIndex] = context.rightSubArr()[rightIndex];
             rightIndex++;
             arrIndex++;

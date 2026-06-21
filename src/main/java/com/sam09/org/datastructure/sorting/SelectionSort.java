@@ -3,15 +3,11 @@ package com.sam09.org.datastructure.sorting;
 /**
  * Resource: https://www.udemy.com/course/draft/3571177/learn/lecture/22990274#questions
  */
-public class SelectionSort implements BaseSorting {
-
-    @Override
-    public void sort(int[] arr) {
-        throw new UnsupportedOperationException();
-    }
+public class SelectionSort extends AbstractSorting {
 
     @Override
     public void sort(int[] arr, OrderBy orderBy) {
+        validate(arr);
         switch (orderBy) {
             case OrderBy.ASC -> sortByAsc(arr);
             case OrderBy.DESC -> sortByDesc(arr);
@@ -27,7 +23,9 @@ public class SelectionSort implements BaseSorting {
                     minIndex = j;
                 }
             }
-            swap(arr, i, minIndex);
+            if (minIndex != i) {
+                swap(arr, i, minIndex);
+            }
         }
     }
 
@@ -39,7 +37,9 @@ public class SelectionSort implements BaseSorting {
                     maxIndex = j;
                 }
             }
-            swap(arr, i, maxIndex);
+            if (maxIndex != i) {
+                swap(arr, i, maxIndex);
+            }
         }
     }
 }

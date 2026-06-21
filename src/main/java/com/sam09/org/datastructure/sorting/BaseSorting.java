@@ -3,13 +3,13 @@ package com.sam09.org.datastructure.sorting;
 
 public interface BaseSorting {
 
-    void sort(int[] arr);
+    /**
+     * @param arr -> input array
+     * It is the default sorting by ascending order if not explicit OrderBy is provided
+     */
+    default void sort(int[] arr) {
+        sort(arr, OrderBy.ASC);
+    }
 
     void sort(int[] arr, OrderBy orderBy);
-
-    default void swap (int[] arr, int sourcePosition, int targetPosition) {
-        var temp = arr[targetPosition];
-        arr[targetPosition] = arr[sourcePosition];
-        arr[sourcePosition] = temp;
-    }
 }

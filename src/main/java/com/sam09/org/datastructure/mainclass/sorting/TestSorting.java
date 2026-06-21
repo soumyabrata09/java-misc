@@ -38,7 +38,7 @@ public class TestSorting {
         System.out.println("\n=====");
     }
 
-    // Sample Arrar: [ 18 6 51 39 4], n = 5
+    // Sample Arrar: [ 18 6 51 39 4 ], n = 5
     public static void main(String args[]) {
         /*var arr = processInput();
         System.out.print("Sorted Array:\n");

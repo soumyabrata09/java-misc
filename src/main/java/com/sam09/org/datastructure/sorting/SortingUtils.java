@@ -17,14 +17,8 @@ public class SortingUtils {
      * @param sortingStrategy the strategy type, i.e MERGE/SELECTION/INSERTION/HEAP etc.
      */
     public void sort(int[] arr, SortingStrategy sortingStrategy, OrderBy orderBy) {
-        switch (sortingStrategy) {
-            case HEAP -> new HeapSort().sort(arr);
-            case SELECTION -> new SelectionSort().sort(arr, orderBy);
-            case INSERTION -> new InsertionSort().sort(arr, orderBy);
-            case MERGE -> new MergeSort().sort(arr, orderBy);
-            case QUICK, BUBBLE -> throw new UnsupportedOperationException(String.format("%s sorting has not been implemented", sortingStrategy.name()));
-            default -> throw new UnsupportedOperationException(String.format("%s is an unsupported sorting strategy", sortingStrategy.name()));
-        }
+        var strategy = SortingFactory.getSortingStrategy(sortingStrategy);
+        strategy.sort(arr, orderBy);
     }
 
     /**
@@ -32,6 +26,10 @@ public class SortingUtils {
      * @param arr a sorted array of integers
      */
     public void print(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            System.out.print("Null");
+            return;
+        }
         IntStream.of(arr).forEach(itr -> System.out.print(itr + "\t"));
     }
 }
