@@ -14,24 +14,24 @@ public class QuickSort extends AbstractSorting {
 
     private int partition(int[] arr, int low, int high, OrderBy orderBy) {
         var pivot = arr[high];
-        var start = low;
+        var partitionIndex = low;
         for (var currentIndex = low; currentIndex < high; currentIndex++) {
             if (orderBy.equals(OrderBy.ASC)) {
                 if (arr[currentIndex] < pivot) {
-                    swap(arr, start, currentIndex);
-                    start++;
+                    swap(arr, partitionIndex, currentIndex);
+                    partitionIndex++;
                 }
             } else {
                 if (arr[currentIndex] > pivot) {
-                    swap(arr, start, currentIndex);
-                    start++;
+                    swap(arr, partitionIndex, currentIndex);
+                    partitionIndex++;
                 }
             }
 
         }
-        swap(arr, start, high);
+        swap(arr, partitionIndex, high);
 
-        return start;
+        return partitionIndex;
     }
 
     private void doSort(int[] arr, int low, int high, OrderBy orderBy) {
