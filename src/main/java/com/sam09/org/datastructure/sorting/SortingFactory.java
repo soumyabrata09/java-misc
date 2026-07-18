@@ -12,7 +12,8 @@ public final class SortingFactory {
             case SELECTION -> new SelectionSort();
             case INSERTION -> new InsertionSort();
             case MERGE -> new MergeSort();
-            case BUBBLE, QUICK -> throw new UnsupportedOperationException(String.format("sorting strategy %s is not implemented yet.", strategy.name()));
+            case QUICK -> new QuickSort();
+            case BUBBLE -> throw new UnsupportedOperationException(String.format("sorting strategy %s is not implemented yet.", strategy.name()));
         };
     }
 }

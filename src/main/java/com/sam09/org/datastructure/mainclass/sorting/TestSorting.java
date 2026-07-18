@@ -44,9 +44,10 @@ public class TestSorting {
         System.out.print("Sorted Array:\n");
         SortingUtils.sort(arr, SortingStrategy.HEAP);
         SortingUtils.print(arr);*/
-        sortByStrategy(SortingStrategy.SELECTION);
-        sortByStrategy(SortingStrategy.INSERTION);
-        sortByStrategy(SortingStrategy.MERGE);
+//        sortByStrategy(SortingStrategy.SELECTION);
+//        sortByStrategy(SortingStrategy.INSERTION);
+//        sortByStrategy(SortingStrategy.MERGE);
+        sortByStrategy(SortingStrategy.QUICK);
 
         SCANNER.close();
     }
